@@ -1,0 +1,19 @@
+<h4>Leave a comment below:</h4>
+<%= form_for [@concert, @comment] do |f| %>
+<div class="form-group" %>
+	<%= f.label :name %>
+	<%= f.text_field :name, class: 'form-control' %>
+</div>
+	<br>
+<div class="form-group" %>
+	<%= f.label :email %>
+	<%= f.email_field :email, class: 'form-control' %>
+</div>
+	<br>
+<div class="form-group" %>
+	<%= f.label :body %>
+	<%= f.text_area :body, class: 'form-control' %>
+</div>
+	<br>
+	<%= f.submit "Save", class: "btn btn-primary" %>
+<% end %>

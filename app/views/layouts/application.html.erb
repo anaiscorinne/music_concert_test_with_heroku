@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MusicConcertNetwork</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+	<header>
+		<ul class="nav nav-tabs navbar-fixed-top">
+			<li role="presentation"><a href="/">Home</a></li>
+			<li role="presentation"><a href="#">Concert List</a></li>
+			<% if current_user.nil? %>
+				<li role="presentation"><a href="/users/sign_in">Log In</a></li>
+				<li role="presentation"><a href="/users/sign_up">Sign Up</a></li>
+			<% else %>
+				<li role="presentation"><a href="/users/sign_out" data-method="delete">Sign Out</a></li>
+			<% end %>
+		</ul>
+	</header>
+
+<%= yield %>
+	<footer>
+		<nav class="navbar navbar-default navbar-fixed-bottom navbar-inverse">
+  		<ul class="container">
+	    	<li role="presentation"><a href="/">Home</a></li>
+				<li role="presentation"><a href="#">Concert List</a></li>
+  		</ul>
+</nav>
+	</footer>
+</body>
+</html>

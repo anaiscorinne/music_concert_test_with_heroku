@@ -1,0 +1,37 @@
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-sm-8">
+			<h1>Concerts This Month:</h1>
+			<br>
+			<ul>
+				<% @concerts_this_month.each do |concert| %>
+					<li>
+						<p>Artist: <%= link_to("#{concert.artist}", concert_path(concert.id))%></p>
+						<p><%=concert.date%></p>
+						<p>Venue: <%=concert.venue%> in <%=concert.city%></p>
+						<p>Price: $<%=concert.price%></p>
+						<hr>
+						<br>
+					</li>
+				<%end%>
+			</ul>
+		</div>
+		<div class="col-sm-4">
+			<aside class="conerts_other_months">
+			<ul>
+				<h3>Upcoming Concerts</h3>
+				<br>
+				<ul>
+					<% @concerts_other_months.each do |concert| %>
+						<li>
+							<p>Artist: <%= link_to("#{concert.artist}", concert_path(concert.id))%></p>
+							<p><%=concert.date%></p>
+							<hr>
+							<br>
+						</li>
+					<%end%>
+				</ul>
+			</aside>
+		</div>
+	</div>
+</div>
